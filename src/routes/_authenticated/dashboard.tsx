@@ -134,12 +134,12 @@ function CreateJobModal({ userId, onClose }: { userId: string; onClose: () => vo
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground"><X className="h-5 w-5" /></button>
         </div>
         <form className="mt-6 space-y-3" onSubmit={(e) => { e.preventDefault(); create.mutate(); }}>
-          <Input label="Job title" value={form.title} onChange={(v) => setForm({ ...form, title: v })} required />
-          <Textarea label="Description" value={form.description} onChange={(v) => setForm({ ...form, description: v })} />
-          <Textarea label="Requirements" value={form.requirements} onChange={(v) => setForm({ ...form, requirements: v })} />
+          <Input label="Job title" value={form.title} onChange={(v: string) => setForm({ ...form, title: v })} required />
+          <Textarea label="Description" value={form.description} onChange={(v: string) => setForm({ ...form, description: v })} />
+          <Textarea label="Requirements" value={form.requirements} onChange={(v: string) => setForm({ ...form, requirements: v })} />
           <div className="grid grid-cols-2 gap-3">
-            <Input label="Location" value={form.location} onChange={(v) => setForm({ ...form, location: v })} placeholder="Remote, NYC…" />
-            <Select label="Experience level" value={form.experience_level} onChange={(v) => setForm({ ...form, experience_level: v })}
+            <Input label="Location" value={form.location} onChange={(v: string) => setForm({ ...form, location: v })} placeholder="Remote, NYC…" />
+            <Select label="Experience level" value={form.experience_level} onChange={(v: string) => setForm({ ...form, experience_level: v })}
               options={["Intern", "Junior", "Mid", "Senior", "Lead", "Executive"]} />
           </div>
           <button type="submit" disabled={create.isPending} className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-xl btn-primary-glow px-5 py-2.5 text-sm disabled:opacity-60">

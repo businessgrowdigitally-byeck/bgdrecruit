@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useServerFn } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn as useStartServerFn } from "@tanstack/react-start";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/_authenticated/jobs/$jobId")({
 });
 
 type Candidate = {
-  id: string; name: string; file_name: string; status: string;
+  id: string; name: string; file_name: string; file_path: string; status: string;
   ai_score: number | null; ai_summary: string | null; ai_recommendation: string | null;
   ai_strengths: string[] | null; ai_weaknesses: string[] | null;
   ai_breakdown: Record<string, number> | null;
