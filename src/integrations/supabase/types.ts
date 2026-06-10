@@ -14,13 +14,187 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      candidates: {
+        Row: {
+          ai_breakdown: Json | null
+          ai_recommendation: string | null
+          ai_score: number | null
+          ai_strengths: string[] | null
+          ai_summary: string | null
+          ai_weaknesses: string[] | null
+          analyzed_at: string | null
+          company_id: string
+          created_at: string
+          file_name: string
+          file_path: string
+          id: string
+          job_id: string
+          name: string
+          status: string
+          uploaded_by: string
+        }
+        Insert: {
+          ai_breakdown?: Json | null
+          ai_recommendation?: string | null
+          ai_score?: number | null
+          ai_strengths?: string[] | null
+          ai_summary?: string | null
+          ai_weaknesses?: string[] | null
+          analyzed_at?: string | null
+          company_id: string
+          created_at?: string
+          file_name: string
+          file_path: string
+          id?: string
+          job_id: string
+          name: string
+          status?: string
+          uploaded_by: string
+        }
+        Update: {
+          ai_breakdown?: Json | null
+          ai_recommendation?: string | null
+          ai_score?: number | null
+          ai_strengths?: string[] | null
+          ai_summary?: string | null
+          ai_weaknesses?: string[] | null
+          analyzed_at?: string | null
+          company_id?: string
+          created_at?: string
+          file_name?: string
+          file_path?: string
+          id?: string
+          job_id?: string
+          name?: string
+          status?: string
+          uploaded_by?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "candidates_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "candidates_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      companies: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          owner_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          owner_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          owner_id?: string
+        }
+        Relationships: []
+      }
+      jobs: {
+        Row: {
+          company_id: string
+          created_at: string
+          created_by: string
+          description: string | null
+          experience_level: string | null
+          id: string
+          location: string | null
+          requirements: string | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          company_id: string
+          created_at?: string
+          created_by: string
+          description?: string | null
+          experience_level?: string | null
+          id?: string
+          location?: string | null
+          requirements?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          experience_level?: string | null
+          id?: string
+          location?: string | null
+          requirements?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "jobs_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          company_id: string
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          company_id: string
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      current_company_id: { Args: never; Returns: string }
     }
     Enums: {
       [_ in never]: never
