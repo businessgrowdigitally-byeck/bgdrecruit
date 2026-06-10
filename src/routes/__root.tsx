@@ -59,6 +59,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "BGD Recruit AI — AI Recruitment Platform" },
       { name: "twitter:description", content: "Upload resumes, let AI rank candidates. Premium AI-powered recruitment for modern teams." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1a33dd91-70af-4526-a864-1a79ac8ac1e8/id-preview-2f8850df--d29daaa6-80d9-4e7f-9d15-4f84b3bae8bf.lovable.app-1781115213026.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1a33dd91-70af-4526-a864-1a79ac8ac1e8/id-preview-2f8850df--d29daaa6-80d9-4e7f-9d15-4f84b3bae8bf.lovable.app-1781115213026.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
